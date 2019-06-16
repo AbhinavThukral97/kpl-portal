@@ -1,0 +1,114 @@
+<header>
+  <div class="content">
+    <div class="title-with-button">
+      <h1>Schools Data</h1>
+      <div>
+        <a href="../users/schools">
+          <button class="fill" type="button">
+            Back to Dashboard
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="content">
+    <% include ./partials/messages %>
+    <div class="table-container">
+      <table class="todownload">
+        <tr class="headings">
+          <th>
+            School
+          </th>
+          <th>
+            A/H
+          </th>
+          <th>
+            PR Manager
+          </th>
+          <th>
+            Area
+          </th>
+          <th>
+            Region
+          </th>
+          <th>
+            School Type
+          </th>
+          <th>
+            Website
+          </th>
+          <th>
+            E-mail
+          </th>
+          <th>
+            Phone
+          </th>
+          <th>
+            Principal
+          </th>
+          <th>
+            SPOC
+          </th>
+          <th>
+            SPOC Email
+          </th>
+          <th>
+            SPOC Phone
+          </th>
+          <th>
+            Dealer
+          </th>
+          <th>
+            Dealer Email
+          </th>
+          <th>
+            Dealer Phone
+          </th>
+          <th>
+            Updated On
+          </th>
+          <th>
+            Posted By
+          </th>
+          <th>
+            Info
+          </th>
+        </tr>
+
+        <% allSchools.forEach(function(s){ %>
+        <tr class="row">
+          <td><a href="../info/school/<%= s._id %>"><%= s.school %></a></td>
+          <td><%= s.AH %></td>
+          <td><%= s.PR %></td>
+          <td><%= s.area %></td>
+          <td><%= s.region %></td>
+          <td><%= s.schoolType %></td>
+          <td><%= s.website %></td>
+          <td><%= s.email %></td>
+          <td><%= s.phone %></td>
+          <td><%= s.principal %></td>
+          <td><%= s.POC %></td>
+          <td><%= s.POCEmail %></td>
+          <td><%= s.POCPhone %></td>
+          <td><%= s.dealer %></td>
+          <td><%= s.dealerEmail %></td>
+          <td><%= s.dealerPhone %></td>
+          <td>
+            <%= s.lastUpdate.getFullYear() %>-<% if(s.lastUpdate.getMonth()<10)
+            { %>0<%= s.lastUpdate.getMonth()%><% } %><%
+            if(s.lastUpdate.getMonth()>=10) { %><%=s.lastUpdate.getMonth()%><% }
+            %>-<% if(s.lastUpdate.getDate()<10) { %>0<%=
+            s.lastUpdate.getDate()%><% } %><% if(s.lastUpdate.getDate()>=10) {
+            %><%= s.lastUpdate.getDate()%><% } %> <%= s.lastUpdate.getHours()
+            %>:<%= s.lastUpdate.getMinutes() %>
+          </td>
+          <td><%= s.postedBy %></td>
+          <td><%= s.info %></td>
+        </tr>
+        <% }); %>
+      </table>
+    </div>
+  </div>
+</section>

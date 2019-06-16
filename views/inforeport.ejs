@@ -1,0 +1,61 @@
+<section>
+  <div class="content-small">
+    <a href="../../users/reports">
+      <button class="link"><i class="fas fa-times"></i> Close</button></a
+    >
+    <h1>Report Information</h1>
+    <div class="data">
+      <div class="point point-full">
+        <p class="data-point">School</p>
+        <p class="info-point"><%= doc.school %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Academic Head</p>
+        <p class="info-point"><%= doc.AH %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">PR Manager</p>
+        <p class="info-point"><%= doc.PR %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Type of School</p>
+        <p class="info-point"><%= doc.schoolType %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Type of Visit</p>
+        <p class="info-point"><%= doc.visitType %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Purpose of Visit</p>
+        <p class="info-point"><%= doc.purpose %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Follow-up Date</p>
+        <p class="info-point"><%= doc.followUpDate %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Final Outcome</p>
+        <p class="info-point"><%= doc.final %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Posted By</p>
+        <p class="info-point"><%= doc.postedBy %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Posted On</p>
+        <p class="info-point">
+          <%= doc.date.getFullYear() %>-<% if(doc.date.getMonth()<10) { %>0<%=
+          doc.date.getMonth()%><% } %><% if(doc.date.getMonth()>=10) { %><%=
+          doc.date.getMonth()%><% } %>-<% if(doc.date.getDate()<10) { %>0<%=
+          doc.date.getDate()%><% } %><% if(doc.date.getDate()>=10) { %><%=
+          doc.date.getDate()%><% } %> <%= doc.date.getHours() %>:<%=
+          doc.date.getMinutes() %>
+        </p>
+      </div>
+      <div class="point point-full">
+        <p class="data-point">Remarks</p>
+        <p class="info-point"><%= doc.remarks %></p>
+      </div>
+    </div>
+  </div>
+</section>

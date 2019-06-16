@@ -1,0 +1,25 @@
+<section>
+  <div class="form-content">
+    <h1>Reset Password</h1>
+    <% include ./partials/messages %>
+    <form method="POST" action="/reset/<%= doc._id %>">
+      <label for="name">Full Name</label>
+
+      <label for="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        disabled
+        value="<%= doc.username %>"
+      />
+      <label for="newpassword">New Password</label>
+      <input type="password" name="newpassword" id="newpassword" />
+
+      <input type="submit" value="Reset" />
+      <a href="../users/accounts"
+        ><button type="button" class="plain">Back to Dashboard</button></a
+      >
+    </form>
+  </div>
+</section>

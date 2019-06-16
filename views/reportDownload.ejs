@@ -1,0 +1,92 @@
+<header>
+  <div class="content">
+    <div class="title-with-button">
+      <h1>Reports Data</h1>
+      <div>
+        <a href="../users/reports">
+          <button class="fill" type="button">
+            Back to Dashboard
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="content">
+    <% include ./partials/messages %>
+    <div class="table-container">
+      <table class="todownload">
+        <tr class="headings">
+          <th>
+            School
+          </th>
+          <th>
+            A/H
+          </th>
+          <th>
+            PR Manager
+          </th>
+          <th>
+            School Type
+          </th>
+          <th>
+            Visit
+          </th>
+          <th>
+            Purpose
+          </th>
+          <th>
+            Follow Up Date
+          </th>
+          <th>
+            Final
+          </th>
+          <th>
+            Posted By
+          </th>
+          <th>
+            Updated On
+          </th>
+          <th>
+            Posted On
+          </th>
+          <th>
+            Remarks
+          </th>
+        </tr>
+        <% allReports.forEach(function(r){ %>
+        <tr class="row">
+          <td><a href="../info/report/<%= r._id %>"><%= r.school %></a></td>
+          <td><%= r.AH %></td>
+          <td><%= r.PR %></td>
+          <td><%= r.schoolType %></td>
+          <td><%= r.visitType %></td>
+          <td><%= r.purpose %></td>
+          <td><%= r.followUpDate %></td>
+          <td><%= r.final %></td>
+          <td><%= r.postedBy %></td>
+          <td>
+            <%= r.lastUpdate.getFullYear() %>-<% if(r.lastUpdate.getMonth()<10)
+            { %>0<%= r.lastUpdate.getMonth()%><% } %><%
+            if(r.lastUpdate.getMonth()>=10) { %><%= r.lastUpdate.getMonth()%><%
+            } %>-<% if(r.lastUpdate.getDate()<10) { %>0<%=
+            r.lastUpdate.getDate()%><% } %><% if(r.lastUpdate.getDate()>=10) {
+            %><%= r.lastUpdate.getDate()%><% } %> <%= r.lastUpdate.getHours()
+            %>:<%= r.lastUpdate.getMinutes() %>
+          </td>
+          <td>
+            <%= r.date.getFullYear() %>-<% if(r.date.getMonth()<10) { %>0<%=
+            r.date.getMonth()%><% } %><% if(r.date.getMonth()>=10) { %><%=
+            r.date.getMonth()%><% } %>-<% if(r.date.getDate()<10) { %>0<%=
+            r.date.getDate()%><% } %><% if(r.date.getDate()>=10) { %><%=
+            r.date.getDate()%><% } %> <%= r.date.getHours() %>:<%=
+            r.date.getMinutes() %>
+          </td>
+          <td><%= r.remarks%></td>
+        </tr>
+        <% }); %>
+      </table>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>KPL Learning</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <% if(typeof page =='undefined'){ %>
+    <link rel="stylesheet" type="text/css" media="screen" href="../style.css" />
+    <% } %> <% if(typeof page !='undefined'){ %> <% if(page == 'static'){ %>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../static.css"
+    />
+    <% } %> <% } %>
+  </head>
+  <body>
+    <%- body %>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <% if(typeof page =='undefined'){ %>
+    <script src="../main.js"></script>
+    <% } %> <% if(typeof page !='undefined'){ %> <% if(page == 'static'){ %>
+    <script src="../static.js"></script>
+    <script type="text/javascript" src="../data.js"></script>
+    <script type="text/javascript" src="../load.js"></script>
+    <% } %> <% } %>
+  </body>
+</html>

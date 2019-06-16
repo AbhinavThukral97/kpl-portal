@@ -1,0 +1,61 @@
+<section>
+  <div class="form-content">
+    <h1>Edit Report</h1>
+    <% include ./partials/messages %>
+    <form method="POST" action="/edit/report/<%= doc._id %>">
+      <label for="school">School Name</label>
+      
+      <select name="school">
+        <option disabled selected="true">Select School</option>
+        <% schoolList.forEach(function(schoolDoc){ %>
+        <option <% if(schoolDoc.school == doc.school){ %>selected<% } %>><%= schoolDoc.school %></option>
+        <% }); %>
+      </select>
+
+      <label for="visitType">Type of Visit</label>
+      <select name="visitType">
+        <option disabled>Select Visit Type</option>
+        <option <% if(doc.visitType == "Visit"){ %>selected<% } %>>Visit</option>
+        <option <% if(doc.visitType == "Telephonic"){ %>selected<% } %>>Telephonic</option>
+        <option <% if(doc.visitType == "Other"){ %>selected<% } %>>Other</option>
+      </select>
+
+      <label for="purpose">Purpose of Visit</label>
+      <select name="purpose">
+        <option disabled>Select Purpose</option>
+        <option <% if(doc.purpose == "First Visit"){ %>selected<% } %>>First Visit</option>
+        <option <% if(doc.purpose == "Follow-up"){ %>selected<% } %>>Follow-up</option>
+        <option <% if(doc.purpose == "Meeting"){ %>selected<% } %>>Meeting</option>
+        <option <% if(doc.purpose == "Demo"){ %>selected<% } %>>Demo</option>
+      </select>
+
+      <label for="followUpDate">Follow Up Date</label>
+      <input
+        type="date"
+        name="followUpDate"
+        id="followUpDate"
+        value="<%= doc.followUpDate %>"
+      />
+
+      <label for="final">Final Outcome</label>
+      <select name="final">
+        <option disabled>Select Final Outcome</option>
+        <option <% if(doc.final == "Positive"){ %>selected<% } %>>Positive</option>
+        <option <% if(doc.final == "Negative"){ %>selected<% } %>>Negative</option>
+        <option <% if(doc.final == "Follow-up"){ %>selected<% } %>>Follow-up</option>
+      </select>
+
+      <label for="remarks">Remarks</label>
+      <textarea
+        id="remarks"
+        name="remarks"
+        value=value="<%= doc.remarks %>"
+      ></textarea>
+
+      <input type="submit" value="Update" />
+      <a href="../../users/reports"
+        ><button type="button" class="plain">Cancel</button></a
+      >
+    </form>
+  </div>
+</section>

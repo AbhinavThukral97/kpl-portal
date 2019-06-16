@@ -1,0 +1,166 @@
+<% include ./partials/nav %>
+<div class="work-area">
+  <header>
+    <div class="content">
+      <div class="title-with-button">
+        <h1>Schools</h1>
+        <div>
+          <a href="../download/schools">
+            <button class="export" type="button">
+              <i class="fas fa-file-download"></i> Export to CSV
+            </button>
+          </a>
+          <a href="./newschool">
+            <button class="fill" type="button">
+              <i class="fas fa-plus"></i> Add New School
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="content">
+      <% include ./partials/messages %>
+      <div class="search">
+        <input type="text" class="search-bar" placeholder="Search" />
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="table-container">
+        <table>
+          <tr class="headings">
+            <th>
+              School
+              <a href="./schools?sortBy=school&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./schools?sortBy=school&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th>
+              A/H
+              <a href="./schools?sortBy=AH&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./schools?sortBy=AH&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th>
+              PR Manager
+              <a href="./schools?sortBy=PR&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./schools?sortBy=PR&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th>
+              School Type
+              <a href="./schools?sortBy=schoolType&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./schools?sortBy=schoolType&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+
+            <th>
+              Region
+              <a href="./schools?sortBy=region&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./schools?sortBy=region&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+
+            <th>
+              Updated On
+              <a href="./schools?sortBy=lastUpdate&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./schools?sortBy=lastUpdate&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <% if (["Admin", "CEO", "Academic Head"].indexOf(user.account) > -1)
+            {%>
+            <th></th>
+            <% } %>
+          </tr>
+
+          <% allSchools.forEach(function(s){ %>
+          <tr class="row">
+            <td><a href="../info/school/<%= s._id %>"><%= s.school %></a></td>
+            <td><%= s.AH %></td>
+            <td><%= s.PR %></td>
+            <td><%= s.schoolType %></td>
+            <td><%= s.region %></td>
+            <td>
+              <%= s.lastUpdate.getFullYear() %>-<%
+              if(s.lastUpdate.getMonth()<10) { %>0<%=
+              s.lastUpdate.getMonth()%><% } %><% if(s.lastUpdate.getMonth()>=10)
+              { %><%=s.lastUpdate.getMonth()%><% } %>-<%
+              if(s.lastUpdate.getDate()<10) { %>0<%= s.lastUpdate.getDate()%><%
+              } %><% if(s.lastUpdate.getDate()>=10) { %><%=
+              s.lastUpdate.getDate()%><% } %> <%= s.lastUpdate.getHours() %>:<%=
+              s.lastUpdate.getMinutes() %>
+            </td>
+            <% if (["Admin", "CEO", "Academic Head"].indexOf(user.account) > -1)
+            {%>
+            <td>
+              <a href="../edit/school/<%= s._id %>"
+                ><i class="far fa-edit tooltip" aria-label="Edit"></i></a
+              ><a href="../delete/school/<%= s._id %>"
+                ><i
+                  class="far fa-trash-alt tooltip"
+                  aria-label="Move to Trash"
+                ></i
+              ></a>
+            </td>
+            <% } %>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

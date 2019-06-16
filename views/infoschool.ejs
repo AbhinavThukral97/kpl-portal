@@ -1,0 +1,106 @@
+<section>
+  <div class="content-small">
+    <a href="../../users/schools">
+      <button class="link"><i class="fas fa-times"></i> Close</button></a
+    >
+    <h1>School Information</h1>
+    <div class="data">
+      <div class="point point-full">
+        <p class="data-point">School</p>
+        <p class="info-point"><%= doc.school %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Academic Head</p>
+        <p class="info-point"><%= doc.AH %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">PR Manager</p>
+        <p class="info-point"><%= doc.PR %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Area</p>
+        <p class="info-point"><%= doc.area %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Region</p>
+        <p class="info-point"><%= doc.region %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">School Type</p>
+        <p class="info-point"><%= doc.schoolType %></p>
+      </div>
+      <div class="point point-large">
+        <p class="data-point">Website</p>
+        <p class="info-point"><%= doc.website %></p>
+      </div>
+      <div class="point point-large">
+        <p class="data-point">E-mail</p>
+        <p class="info-point"><%= doc.email %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Phone</p>
+        <p class="info-point"><%= doc.phone %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Principal</p>
+        <p class="info-point"><%= doc.principal %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">SPOC</p>
+        <p class="info-point"><%= doc.POC %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">SPOC Email</p>
+        <p class="info-point"><%= doc.POCEmail %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">SPOC Phone</p>
+        <p class="info-point"><%= doc.POCPhone %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Dealer</p>
+        <p class="info-point"><%= doc.dealer %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Dealer Email</p>
+        <p class="info-point"><%= doc.dealerEmail %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Dealer Phone</p>
+        <p class="info-point"><%= doc.dealerPhone %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Posted By</p>
+        <p class="info-point"><%= doc.postedBy %></p>
+      </div>
+      <div class="point">
+        <p class="data-point">Posted On</p>
+        <p class="info-point">
+          <%= doc.date.getFullYear() %>-<% if(doc.date.getMonth()<10) { %>0<%=
+          doc.date.getMonth()%><% } %><% if(doc.date.getMonth()>=10) { %><%=
+          doc.date.getMonth()%><% } %>-<% if(doc.date.getDate()<10) { %>0<%=
+          doc.date.getDate()%><% } %><% if(doc.date.getDate()>=10) { %><%=
+          doc.date.getDate()%><% } %> <%= doc.date.getHours() %>:<%=
+          doc.date.getMinutes() %>
+        </p>
+      </div>
+      <div class="point">
+        <p class="data-point">Last Updated</p>
+        <p class="info-point">
+          <%= doc.lastUpdate.getFullYear() %>-<%
+          if(doc.lastUpdate.getMonth()<10) { %>0<%=
+          doc.lastUpdate.getMonth()%><% } %><% if(doc.lastUpdate.getMonth()>=10)
+          { %><%= doc.lastUpdate.getMonth()%><% } %>-<%
+          if(doc.lastUpdate.getDate()<10) { %>0<%= doc.lastUpdate.getDate()%><%
+          } %><% if(doc.lastUpdate.getDate()>=10) { %><%=
+          doc.lastUpdate.getDate()%><% } %> <%= doc.lastUpdate.getHours() %>:<%=
+          doc.lastUpdate.getMinutes() %>
+        </p>
+      </div>
+      <div class="point point-full">
+        <p class="data-point">Addition Information</p>
+        <p class="info-point"><%= doc.info %></p>
+      </div>
+    </div>
+  </div>
+</section>

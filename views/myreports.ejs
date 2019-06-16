@@ -1,0 +1,177 @@
+<% include ./partials/nav %>
+<div class="work-area">
+  <header>
+    <div class="content">
+      <div class="title-with-button">
+        <h1>My Reports</h1>
+        <div>
+          <a href="../download/myreports">
+            <button class="export" type="button">
+              <i class="fas fa-file-download"></i> Export to CSV
+            </button>
+          </a>
+          <a href="./newreport">
+            <button class="fill" type="button">
+              <i class="fas fa-plus"></i> Add New Report
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="content">
+      <% include ./partials/messages %>
+      <div class="search">
+        <input type="text" class="search-bar" placeholder="Search" />
+        <i class="fas fa-search"></i>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <tr class="headings">
+            <th>
+              School
+              <a href="./reports?sortBy=school&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=school&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+
+            <th>
+              A/H
+              <a href="./reports?sortBy=AH&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=AH&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+
+            <th>
+              PR Manager
+              <a href="./reports?sortBy=PR&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=PR&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+
+            <th>
+              Visit
+              <a href="./reports?sortBy=visitType&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=visitType&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th>
+              Purpose
+              <a href="./reports?sortBy=purpose&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=purpose&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th>
+              Posted By
+              <a href="./reports?sortBy=postedBy&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=postedBy&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th>
+              Updated On
+              <a href="./reports?sortBy=lastUpdate&order=1"
+                ><i
+                  class="fas fa-long-arrow-alt-down tooltip"
+                  aria-label="Sort Ascending"
+                ></i
+              ></a>
+              <a href="./reports?sortBy=lastUpdate&order=-1"
+                ><i
+                  class="fas fa-long-arrow-alt-up tooltip"
+                  aria-label="Sort Descending"
+                ></i
+              ></a>
+            </th>
+            <th></th>
+          </tr>
+          <% allReports.forEach(function(r){ %>
+          <tr class="row">
+            <td><a href="../info/report/<%= r._id %>"><%= r.school %></a></td>
+            <td><%= r.AH %></td>
+            <td><%= r.PR %></td>
+            <td><%= r.visitType %></td>
+            <td><%= r.purpose %></td>
+            <td><%= r.postedBy %></td>
+            <td>
+              <%= r.lastUpdate.getFullYear() %>-<%
+              if(r.lastUpdate.getMonth()<10) { %>0<%=
+              r.lastUpdate.getMonth()%><% } %><% if(r.lastUpdate.getMonth()>=10)
+              { %><%= r.lastUpdate.getMonth()%><% } %>-<%
+              if(r.lastUpdate.getDate()<10) { %>0<%= r.lastUpdate.getDate()%><%
+              } %><% if(r.lastUpdate.getDate()>=10) { %><%=
+              r.lastUpdate.getDate()%><% } %> <%= r.lastUpdate.getHours() %>:<%=
+              r.lastUpdate.getMinutes() %>
+            </td>
+            <td>
+              <a href="../edit/report/<%= r._id %>"
+                ><i class="far fa-edit tooltip" aria-label="Edit"></i></a
+              ><a href="../delete/report/<%= r._id %>"
+                ><i
+                  class="far fa-trash-alt tooltip"
+                  aria-label="Move to Trash"
+                ></i
+              ></a>
+            </td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

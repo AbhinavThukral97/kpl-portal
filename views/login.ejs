@@ -1,0 +1,13 @@
+<section>
+  <div class="form-content">
+    <h1>Login</h1>
+    <% include ./partials/messages %>
+    <form method="POST" action="/users/login">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+      <input type="submit" value="Login" />
+    </form>
+  </div>
+</section>

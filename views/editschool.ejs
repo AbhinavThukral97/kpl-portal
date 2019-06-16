@@ -1,0 +1,148 @@
+<section>
+  <div class="form-content">
+    <h1>Edit School</h1>
+    <% include ./partials/messages %>
+    <form method="POST" action="/edit/school/<%= doc._id %>">
+      <label for="school">School Name <span>*</span></label>
+      <input
+        type="text"
+        name="school"
+        id="school"
+        value="<%= doc.school %>"
+      />
+
+      <label for="school">Academic Head <span>*</span></label>
+      <select name="AH">
+        <option disabled>Select Academic Head</option>
+        <% AHList.forEach(function(data){ %>
+        <option <% if(data.name == doc.AH){%>selected<%}%>><%= data.name %></option>
+        <% }); %>
+      </select>
+
+      <label for="school">PR Manager <span>*</span></label>
+      <select name="PR">
+        <option disabled>Select PR Manager</option>
+        <% PRList.forEach(function(data){ %>
+        <option <% if(data.name == doc.PR){%>selected<%}%> ><%= data.name %></option>
+        <% }); %>
+      </select>
+
+      <label for="area">Area <span>*</span></label>
+      <input
+        type="text"
+        name="area"
+        id="area"
+        value="<%= doc.area %>"
+      />
+
+      <label for="region">Region <span>*</span></label>
+      <input
+        type="text"
+        name="region"
+        id="region"
+        value="<%= doc.region %>"
+      />
+
+      <label for="schoolType">Type of School</label>
+      <select name="schoolType">
+        <option disabled>Select School Type</option>
+        <option value="New" <% if(doc.schoolType == "New"){%>selected<%}%>>New</option>
+        <option value="Existing" <% if(doc.schoolType == "Existing"){%>selected<%}%>>Existing</option>
+      </select>
+
+      <label for="website">Website</label>
+      <input
+        type="text"
+        name="website"
+        id="website"
+        class="lower"
+        value="<%= doc.website %>"
+      />
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="lower"
+        value="<%= doc.email %>"
+      />
+
+      <label for="phone">Phone</label>
+      <input
+        type="text"
+        name="phone"
+        id="phone"
+        value="<%= doc.phone %>"
+      />
+
+      <label for="principal">Principal</label>
+      <input
+        type="text"
+        name="principal"
+        id="principal"
+        value="<%= doc.principal %>"
+      />
+
+      <label for="POC">Coordinator &mdash; Name</label>
+      <input
+        type="text"
+        name="POC"
+        id="POC"
+        value="<%= doc.POC %>"
+      />
+
+      <label for="POCEmail">Coordinator &mdash; Email</label>
+      <input
+        type="text"
+        name="POCEmail"
+        id="POCEmail"
+        value="<%= doc.POCEmail %>"
+      />
+
+      <label for="POCPhone">Coordinator &mdash; Phone</label>
+      <input
+        type="text"
+        name="POCPhone"
+        id="POCPhone"
+        value="<%= doc.POCPhone %>"
+      />
+
+      <label for="dealer">Dealer &mdash; Name</label>
+      <input
+        type="text"
+        name="dealer"
+        id="dealer"
+        value="<%= doc.dealer %>"
+      />
+
+      <label for="dealerEmail">Dealer &mdash; Email</label>
+      <input
+        type="text"
+        name="dealerEmail"
+        id="dealerEmail"
+        value="<%= doc.dealerEmail %>"
+      />
+
+      <label for="dealerPhone">Dealer &mdash; Phone</label>
+      <input
+        type="text"
+        name="dealerPhone"
+        id="dealerPhone"
+        value="<%= doc.dealerPhone %>"
+      />
+
+      <label for="info">Additional Information</label>
+      <textarea
+        id="info"
+        name="info"
+        value="<%= doc.info %>"
+      ></textarea>
+
+      <input type="submit" value="Update" />
+      <a href="../../users/schools"
+        ><button type="button" class="plain">Cancel</button></a
+      >
+    </form>
+  </div>
+</section>

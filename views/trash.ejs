@@ -1,0 +1,68 @@
+<% include ./partials/nav %>
+<div class="work-area">
+  <header>
+    <div class="content">
+      <div class="title-with-button">
+        <h1>Trash</h1>
+        <a href="../delete/trash">
+          <button class="fill" type="button">
+            <i class="fas fa-trash"></i> Empty Trash
+          </button>
+        </a>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="content">
+      <% include ./partials/messages %>
+      <!--Deleted Reports Section-->
+      <h5>Reports</h5>
+      <div class="table-container">
+        <table>
+          <tr class="headings">
+            <th>School</th>
+            <th>Type of School</th>
+            <th>Visit</th>
+            <th>Purpose</th>
+            <th>Posted By</th>
+            <th></th>
+          </tr>
+          <% deletedReports.forEach(function(r){ %>
+          <tr class="row">
+            <td><%= r.school %></td>
+            <td><%= r.schoolType %></td>
+            <td><%= r.visitType %></td>
+            <td><%= r.purpose %></td>
+            <td><%= r.postedBy %></td>
+            <td>
+              <a href="../../recover/report/<%= r._id %>">Recover</a>
+            </td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+      <!--Deleted Schools Section-->
+      <h5>Schools</h5>
+      <div class="table-container">
+        <table>
+          <tr class="headings">
+            <th>School</th>
+            <th>Area</th>
+            <th>Region</th>
+            <th></th>
+          </tr>
+          <% deletedSchools.forEach(function(s){ %>
+          <tr class="row">
+            <td><%= s.school %></td>
+            <td><%= s.area %></td>
+            <td><%= s.region %></td>
+            <td>
+              <a href="../../recover/school/<%= s._id %>">Recover</a>
+            </td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

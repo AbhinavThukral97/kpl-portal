@@ -1,0 +1,61 @@
+<section>
+  <div class="form-content">
+    <h1>Add New Report</h1>
+    <% include ./partials/messages %>
+    <form method="POST" action="/users/newreport">
+      <label for="school">School Name <span>*</span></label>
+
+      <select name="school">
+        <option disabled selected="true">Select School </option>
+        <% schoolList.forEach(function(schoolDoc){ %>
+        <option value="<%= schoolDoc.school %>"><%= schoolDoc.school %></option>
+        <% }); %>
+      </select>
+
+      <label for="visitType">Type of Visit <span>*</span></label>
+      <select name="visitType">
+        <option disabled selected="true">Select Visit Type</option>
+        <option value="Visit">Visit</option>
+        <option value="Telephonic">Telephonic</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="purpose">Purpose of Visit <span>*</span></label>
+      <select name="purpose">
+        <option disabled selected="true">Select Purpose</option>
+        <option value="First Visit">First Visit</option>
+        <option value="Follow-up">Follow-up</option>
+        <option value="Meeting">Meeting</option>
+        <option value="Demo">Demo</option>
+      </select>
+
+      <label for="followUpDate">Follow Up Date</label>
+      <input
+        type="date"
+        name="followUpDate"
+        id="followUpDate"
+        value="<%= typeof followUpDate!='undefined' ? followUpDate : '' %>"
+      />
+
+      <label for="final">Final Outcome</label>
+      <select name="final">
+        <option disabled selected="true">Select Final Outcome</option>
+        <option>Positive</option>
+        <option>Negative</option>
+        <option>Follow-up</option>
+      </select>
+
+      <label for="remarks">Remarks</label>
+      <textarea
+        id="remarks"
+        name="remarks"
+        value="<%= typeof remarks!='undefined' ? remarks : '' %>"
+      ></textarea>
+
+      <input type="submit" value="Add Report" />
+      <a href="./reports"
+        ><button type="button" class="plain">Back to Dashboard</button></a
+      >
+    </form>
+  </div>
+</section>

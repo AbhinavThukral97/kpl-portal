@@ -1,0 +1,148 @@
+<section>
+  <div class="form-content">
+    <h1>Add New School</h1>
+    <% include ./partials/messages %>
+    <form method="POST" action="/users/newschool">
+      <label for="school">School Name <span>*</span></label>
+      <input
+        type="text"
+        name="school"
+        id="school"
+        value="<%= typeof school!='undefined' ? school : '' %>"
+      />
+
+      <label for="school">Academic Head <span>*</span></label>
+      <select name="AH">
+        <option disabled selected>Select Academic Head</option>
+        <% AHList.forEach(function(data){ %>
+        <option><%= data.name %></option>
+        <% }); %>
+      </select>
+
+      <label for="school">PR Manager <span>*</span></label>
+      <select name="PR">
+        <option disabled selected>Select PR Manager</option>
+        <% PRList.forEach(function(data){ %>
+        <option><%= data.name %></option>
+        <% }); %>
+      </select>
+
+      <label for="area">Area <span>*</span></label>
+      <input
+        type="text"
+        name="area"
+        id="area"
+        value="<%= typeof area!='undefined' ? area : '' %>"
+      />
+
+      <label for="region">Region <span>*</span></label>
+      <input
+        type="text"
+        name="region"
+        id="region"
+        value="<%= typeof region!='undefined' ? region : '' %>"
+      />
+
+      <label for="schoolType">Type of School</label>
+      <select name="schoolType">
+        <option disabled selected="true">Select School Type</option>
+        <option value="New">New</option>
+        <option value="Existing">Existing</option>
+      </select>
+
+      <label for="website">Website</label>
+      <input
+        type="text"
+        name="website"
+        id="website"
+        class="lower"
+        value="<%= typeof website!='undefined' ? website : '' %>"
+      />
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="lower"
+        value="<%= typeof email!='undefined' ? email : '' %>"
+      />
+
+      <label for="phone">Phone</label>
+      <input
+        type="number"
+        name="phone"
+        id="phone"
+        value="<%= typeof phone!='undefined' ? phone : '' %>"
+      />
+
+      <label for="principal">Principal</label>
+      <input
+        type="text"
+        name="principal"
+        id="principal"
+        value="<%= typeof principal!='undefined' ? principal : '' %>"
+      />
+
+      <label for="POC">Coordinator &mdash; Name</label>
+      <input
+        type="text"
+        name="POC"
+        id="POC"
+        value="<%= typeof POC!='undefined' ? POC : '' %>"
+      />
+
+      <label for="POCEmail">Coordinator &mdash; E-mail</label>
+      <input
+        type="email"
+        name="POCEmail"
+        id="POCEmail"
+        value="<%= typeof POCEmail!='undefined' ? POCEmail : '' %>"
+      />
+
+      <label for="POCPhone">Coordinator &mdash; Phone</label>
+      <input
+        type="number"
+        name="POCPhone"
+        id="POCPhone"
+        value="<%= typeof POCPhone!='undefined' ? POCPhone : '' %>"
+      />
+
+      <label for="dealer">Dealer &mdash; Name</label>
+      <input
+        type="text"
+        name="dealer"
+        id="dealer"
+        value="<%= typeof dealer!='undefined' ? dealer : '' %>"
+      />
+
+      <label for="dealerEmail">Dealer &mdash; E-mail</label>
+      <input
+        type="email"
+        name="dealerEmail"
+        id="dealerEmail"
+        value="<%= typeof dealerEmail!='undefined' ? dealerEmail : '' %>"
+      />
+
+      <label for="dealerPhone">Dealer &mdash; Phone</label>
+      <input
+        type="number"
+        name="dealerPhone"
+        id="dealerPhone"
+        value="<%= typeof dealerPhone!='undefined' ? dealerPhone : '' %>"
+      />
+
+      <label for="info">Additional Information</label>
+      <textarea
+        id="info"
+        name="info"
+        value="<%= typeof info!='undefined' ? info : '' %>"
+      ></textarea>
+
+      <input type="submit" value="Add School" />
+      <a href="./schools"
+        ><button type="button" class="plain">Back to Dashboard</button></a
+      >
+    </form>
+  </div>
+</section>

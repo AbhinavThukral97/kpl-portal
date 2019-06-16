@@ -1,0 +1,51 @@
+<% include ./partials/nav %>
+<div class="work-area">
+  <header>
+    <div class="content">
+      <div class="title-with-button">
+        <h1>Accounts</h1>
+        <div>
+          <button class="enable-delete" type="button">
+            <i class="fas fa-user-slash"></i> Enable Deletion
+          </button>
+          <a href="./register">
+            <button class="fill" type="button">
+              <i class="fas fa-plus"></i> Create account
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="content">
+      <% include ./partials/messages %>
+      <div class="table-container">
+        <table>
+          <tr class="headings">
+            <th>User</th>
+            <th>Username</th>
+            <th>Account</th>
+            <th>Password</th>
+            <th>Delete</th>
+          </tr>
+          <% allUsers.forEach(function(u){ %>
+          <tr class="row">
+            <td><%= u.name %></td>
+            <td><%= u.username %></td>
+            <td><%= u.account %></td>
+            <td>
+              <a href="../reset/<%= u._id %>">Reset</a>
+            </td>
+            <td>
+              <a href="../delete/account/<%= u._id %>" class="delete-link"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

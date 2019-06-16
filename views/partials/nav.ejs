@@ -1,0 +1,40 @@
+<div class="dashboard-nav">
+  <div class="profile">
+    <div class="picture"></div>
+    <h6 class="user"><%= user.name %></h6>
+    <h6 class="profile"><%= user.account %></h6>
+  </div>
+  <div class="tabs">
+    <a href="./dashboard">
+      <div class="tab"><i class="fas fa-home"></i> Home</div>
+    </a>
+    <a href="./reports"
+      ><div class="tab"><i class="fas fa-file-alt"></i> All Reports</div></a
+    >
+    <a href="./myreports"
+      ><div class="tab">
+        <i class="fas fa-file-signature"></i> My Reports
+      </div></a
+    >
+    <a href="./schools"
+      ><div class="tab"><i class="fas fa-school"></i> Schools</div></a
+    >
+    <% if (["Admin", "CEO"].indexOf(user.account) > -1) {%>
+    <a href="./accounts"
+      ><div class="tab"><i class="fas fa-users"></i> Accounts</div></a
+    >
+    <% } %> <% if (["Admin", "CEO"].indexOf(user.account) > -1){ %>
+    <a href="./trash"
+      ><div class="tab"><i class="fas fa-trash"></i> Trash</div></a
+    >
+    <% } %>
+    <a href="./profile"
+      ><div class="tab"><i class="fas fa-user-cog"></i> Profile</div></a
+    >
+    <a href="./logout">
+      <div class="tab"><i class="fas fa-sign-out-alt"></i> Logout</div>
+    </a>
+  </div>
+
+  <div class="menu-button"><i class="fas fa-chevron-left"></i></div>
+</div>
